@@ -4,7 +4,7 @@ GoogleCloud의 Compute Engine을 활용하여 ChatBot 구현.
 
 ## 로컬 웹 챗봇 (1단계)
 
-브라우저에서 동작하는 Gemini 기반 챗봇. 외부 의존성 없이 Node 내장 모듈만 사용한다.
+브라우저에서 동작하는 Gemini 기반 챗봇. 외부 의존성 없이 Python 표준 라이브러리만 사용한다.
 
 ### 실행
 
@@ -14,17 +14,18 @@ export GEMINI_API_KEY="발급받은_키"      # 현재 셸에만 적용
 cp .env.example .env && vi .env          # .env 파일로 관리 (권장)
 
 # 2) 서버 실행
-npm start            # http://localhost:3000
+python3 server.py    # http://localhost:3000
 ```
 
+Python 3.8 이상이면 동작한다 (`pip install` 불필요).
 키는 서버 프로세스의 환경변수(`GEMINI_API_KEY`, 없으면 `GOOGLE_API_KEY`)에서만 읽는다.
-브라우저로는 절대 내려가지 않고, 모든 호출은 `server.js`가 프록시한다.
+브라우저로는 절대 내려가지 않고, 모든 호출은 `server.py`가 프록시한다.
 
 ### 구성
 
 | 파일 | 역할 |
 | --- | --- |
-| [server.js](server.js) | 정적 파일 서빙 + `/api/models` + `/api/chat` (SSE 스트리밍 프록시) |
+| [server.py](server.py) | 정적 파일 서빙 + `/api/models` + `/api/chat` (SSE 스트리밍 프록시) |
 | [public/index.html](public/index.html) | 화면 구조 (상단 모델 선택, 인사말, 입력창) |
 | [public/styles.css](public/styles.css) | gemini.google.com/app 스타일 다크 테마 입력창 |
 | [public/app.js](public/app.js) | 모델 선택, 자동 높이 입력창, 스트리밍 렌더링 |
