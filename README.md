@@ -9,7 +9,7 @@ GoogleCloud의 Compute Engine을 활용하여 ChatBot 구현.
 ### 실행
 
 ```bash
-# 1) API 키 등록 (둘 중 하나)
+# 1) API 키 등록 (둘 중 하나)   
 export GEMINI_API_KEY="발급받은_키"      # 현재 셸에만 적용
 cp .env.example .env && vi .env          # .env 파일로 관리 (권장)
 
