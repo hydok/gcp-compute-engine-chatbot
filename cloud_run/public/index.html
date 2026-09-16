@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gemini 챗봇</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div id="layout" class="layout">
+    <aside id="sidebar" class="sidebar">
+      <button id="sidebarNewChat" class="sidebar-new">
+        <span class="material-symbols-outlined">add_comment</span>
+        <span>새 채팅</span>
+      </button>
+      <ul id="historyList" class="history-list"></ul>
+    </aside>
+
+    <div class="app-main">
+      <header class="topbar">
+        <button id="sidebarToggle" class="icon-button sidebar-toggle" title="사이드바">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+        <div class="brand">
+          <span class="brand-name">Gemini</span>
+          <div class="model-picker">
+            <button id="modelButton" class="model-button" aria-haspopup="listbox" aria-expanded="false">
+              <span id="modelLabel">모델 불러오는 중…</span>
+              <span class="material-symbols-outlined chev">expand_more</span>
+            </button>
+            <ul id="modelMenu" class="model-menu" role="listbox" hidden></ul>
+          </div>
+        </div>
+        <button id="newChat" class="icon-button" title="새 채팅">
+          <span class="material-symbols-outlined">add_comment</span>
+        </button>
+      </header>
+
+      <main id="main" class="main">
+        <section id="greeting" class="greeting">
+          <h1 class="gradient-text">안녕하세요</h1>
+          <p class="greeting-sub">무엇을 도와드릴까요?</p>
+        </section>
+        <section id="messages" class="messages" aria-live="polite"></section>
+      </main>
+
+      <footer class="composer-wrap">
+        <form id="composer" class="composer">
+          <textarea id="input" class="composer-input" rows="1" placeholder="Gemini에게 물어보기" autofocus></textarea>
+          <div class="composer-actions">
+            <button type="submit" id="send" class="send-button" title="보내기" disabled>
+              <span class="material-symbols-outlined">arrow_upward</span>
+            </button>
+          </div>
+        </form>
+        <p class="disclaimer">Gemini는 실수를 할 수 있으니 중요한 정보는 다시 확인하세요.</p>
+      </footer>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
